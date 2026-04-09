@@ -12,6 +12,7 @@
                 die ("Connection failed: {mysqli_connector_error()}");
             }
             echo "Connected successfully";
+
             $sql = "select * from Pusers;";
             $result = mysqli_query ($conn, $sql);
 
@@ -22,6 +23,8 @@
         <?php
             $sql = "INSERT INTO Pusers (names) values ('$name');";
             $result = mysqli_query($conn, $sql);
+            
+            echo "$name";
 
             mysqli_close($conn);
         ?>
