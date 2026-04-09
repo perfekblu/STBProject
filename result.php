@@ -20,7 +20,7 @@
     </head>
     <body>
         <?php
-            $sql = "INSERT INTO Pusers (name) values ('$name');";
+            $sql = "INSERT INTO Pusers (names) values ('$name');";
             $result = mysqli_query($conn, $sql);
 
             mysqli_close($conn);
