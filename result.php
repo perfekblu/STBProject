@@ -1,4 +1,5 @@
 <?php
+    //Connect to database
     $server = "localhost";
     $username = "aba";
     $password = "abab";
@@ -9,16 +10,21 @@
         echo "Connection failed";
         die ("Connection failed: {mysqli_connector_error()}");
     }
-    echo "Connected successfully";
+    echo "Connected successfully"."<br>";
 
     $sql = "select * from Pusers;";
     $result = mysqli_query ($conn, $sql);
 
-    /*$name = htmlspecialchars($_POST['name']);
 
-    $sql = "INSERT INTO Pusers (names) values ('$name');";
-    $result = mysqli_query($conn, $sql);*/
-            
+
+    $Names = htmlspecialchars($_POST['Names']);
+    $Age = (int)$_POST['Age'];
+
+    $sql = "INSERT INTO Pusers (Names,Age) values ('$Names',$Age);";
+    $result = mysqli_query($conn, $sql);
+    
+
+    //Display all current users
     $result = $conn->query("SELECT * FROM Pusers;");
 
     while($row = $result->fetch_assoc()) {
