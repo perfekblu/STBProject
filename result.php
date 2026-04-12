@@ -18,7 +18,7 @@
     $sql = "INSERT INTO Pusers (names) values ('$name');";
     $result = mysqli_query($conn, $sql);*/
             
-    $result = $conn->query("SELECT * FROM Pusers");
+    $result = $conn->query("SELECT * FROM Pusers;");
 
     while($row = $result->fetch_assoc()) {
         echo $row['Names'] . "\t". ;
