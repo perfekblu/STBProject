@@ -1,0 +1,23 @@
+!<DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function showUser(str){
+                var xmlhttp=new XMLHttpRequest();
+                xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    document.getElementById("txt").innerHTML=this.responseText;
+                }
+            }
+            xmlhttp.open("GET","result.php");
+            xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            showUser();
+        </script>
+        <div id="txt"></div>
+    </body>
+</html>
