@@ -9,13 +9,13 @@
                     document.getElementById("txt").innerHTML=this.responseText;
                 }
             }
-            xmlhttp.open("GET","result.php?q=",true);
+            xmlhttp.open("GET","result.php");
             xmlhttp.send();
             }
         </script>
     </head>
     <body>
-        <script>showUser();</script>
+        <button onclick="showUser()">Click</button>
         <div id="txt">Suppose to show data.</div>
     </body>
 </html>
