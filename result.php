@@ -22,7 +22,7 @@
     $result = $conn->query("SELECT * FROM Pusers;");
 
     while($row = $result->fetch_assoc()) {
-        echo $row['Names'] . "\t". ;
+        echo $row['Names'] . "\t";
         echo $row['Age'] . "<br>";
     }
 
