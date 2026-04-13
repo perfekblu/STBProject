@@ -15,11 +15,10 @@
     $sql = "select * from Pusers;";
     $result = mysqli_query ($conn, $sql);
 
+    $Names = htmlspecialchars($_POST['Names']);
+    $Age = (int)$_POST['Age'];
 
     if(!empty($_POST)){
-        $Names = htmlspecialchars($_POST['Names']);
-        $Age = (int)$_POST['Age'];
-
         $sql = "INSERT INTO Pusers (Names,Age) values ('$Names',$Age);";
         $result = mysqli_query($conn, $sql);
     }
