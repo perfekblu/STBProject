@@ -15,7 +15,7 @@
     $sql = "select * from Pusers;";
     $result = mysqli_query ($conn, $sql);
 
-    $name = htmlspecialchars($_POST['Names']);
+    $name = htmlspecialchars($_POST['Name']);
     $age = (int)$_POST['Age'];
 
     if(!empty($_POST)){
