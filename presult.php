@@ -1,5 +1,5 @@
 <?php
-    $json = file_put_contents('php://input');
+    $json = file_get_contents('php://input');
     $data = json_decode($json,true);
 
     echo "Temperature: " . $data['temp'] . "<br>";
