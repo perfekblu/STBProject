@@ -29,7 +29,7 @@
     }
     
     //Display all current users
-    $result = $conn->query("SELECT * FROM sensor_test;");
+    $result = $conn->query("SELECT * FROM sensor_test ORDER BY id DESC LIMIT 1;");
 
     /*while($row = $result->fetch_assoc()) {
         echo $row['Names'] . "\t";
