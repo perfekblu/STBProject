@@ -1,6 +1,6 @@
 <?php
-$data = file_get_contents("data.json");
-$json = json_decode($data, true);
+$json = file_get_contents("php//:input");
+$data = json_decode($json, true);
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $json = json_decode($data, true);
 </head>
 <body>
     <h1>Sensor Data</h1>
-    <p>Temperature: <?php echo $json['temperature']; ?> °C</p>
-    <p>Humidity: <?php echo $json['humidity']; ?> %</p>
+    <p>Temperature: <?php echo $data['temperature']; ?> °C</p>
+    <p>Humidity: <?php echo $data['humidity']; ?> %</p>
 </body>
 </html>
