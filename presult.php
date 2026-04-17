@@ -29,10 +29,13 @@
         $result = mysqli_query($conn, $sql);
     }*/
 
-    //if(!empty($data)){
+    /*if(!empty($data)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
-    //}
+    }*/
+
+    $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
+    $result = mysqli_query($conn, $sql);
     
     //Display all current users
     $result = $conn->query("SELECT * FROM sensor_test ORDER BY id DESC LIMIT 1;");
