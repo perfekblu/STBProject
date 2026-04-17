@@ -26,7 +26,7 @@
     /*if(!empty($_POST)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ($temp,$hum);";
         $result = mysqli_query($conn, $sql);
-    */}
+    }*/
 
     $sql = "INSERT INTO sensor_test (temperature,humidity) values ($temp,$hum);";
     $result = mysqli_query($conn, $sql);
