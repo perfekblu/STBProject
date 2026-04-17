@@ -24,10 +24,10 @@
     //$temp = (int)$_POST['temp'];
     //$hum = (int)$_POST['hum'];
 
-    if(!empty($_POST)){
+    /*if(!empty($_POST)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
-    }
+    }*/
 
     if(!empty($data)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
