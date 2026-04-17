@@ -18,24 +18,23 @@
     echo file_get_contents('php://input') . "<br>" . "<br>";
     echo "$data";
 
-    $temp = $data['temp'];
-    $hum = $data['hum'];
+    //$temp = $data['temp'];
+    //$hum = $data['hum'];
 
-    //$temp = (int)$_POST['temp'];
-    //$hum = (int)$_POST['hum'];
+    $temp = (int)$_POST['temp'];
+    $hum = (int)$_POST['hum'];
 
-    /*if(!empty($_POST)){
+    if(!empty($_POST)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
-    }*/
+    }
 
     /*if(!empty($data)){
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
     }*/
 
-    $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
-    $result = mysqli_query($conn, $sql);
+    
     
     //Display all current users
     $result = $conn->query("SELECT * FROM sensor_test ORDER BY id DESC LIMIT 1;");
