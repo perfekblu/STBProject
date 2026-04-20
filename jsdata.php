@@ -1,6 +1,6 @@
 <?php
     $json = file_get_contents('php://input');
-    echo $json;
+    echo "$json";
 
 
     $temp = $data['temp'];
