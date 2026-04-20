@@ -1,8 +1,8 @@
 <?php
     $json = file_get_contents('php://input');
     $data = json_decode($json,true);
-    echo "$json";
-    //echo json_encode($data);
+    //echo "$json";
+    echo json_encode($data);
 
 
     $temp = $data['temp'];
