@@ -24,9 +24,9 @@
         <script>
             async function getData() {
                 try {
-                    const response = await fetch('jsdata.php');
+                    const response = await fetch('presult.php');
                     if (!response.ok) throw new Error('Network response was not ok');
-                    const data = await response.text(); // Parses JSON response from PHP
+                    const data = await response.json(); // Parses JSON response from PHP
                     console.log(data);
                     //console.log("allo");
                     document.getElementById('output').innerHTML =  `Temp: ${data.temperature}°C<br>Humidity: ${data.humidity}%`;
