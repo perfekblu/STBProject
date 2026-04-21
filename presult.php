@@ -20,6 +20,8 @@
 
     $temp = $data['temp'];
     $hum = $data['hum'];
+    $gas = $data['gas'];
+    $aqi = $data['aqi'];
 
     //$temp = (int)$_POST['temp'];
     //$hum = (int)$_POST['hum'];
@@ -30,7 +32,7 @@
     }*/
 
     if(!empty($data)){
-        $sql = "INSERT INTO sensor_data (temperature,humidity) values ('$temp','$hum');";
+        $sql = "INSERT INTO sensor_data (temperature,humidity,gas,aqi) values ('$temp','$hum','$gas','$aqi');";
         $result = mysqli_query($conn, $sql);
     }
 
