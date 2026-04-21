@@ -40,7 +40,7 @@
                             <h3>TEMPERATURE</h3>
                             <span class="material-symbols-outlined">device_thermostat</span>
                         </div>
-                        <h1>25</h1>
+                        <h1 id="temp"></h1>
                     </div>
 
                     <div class="card">
@@ -48,7 +48,7 @@
                             <h3>HUMIDITY</h3>
                             <span class="material-symbols-outlined">humidity_mid</span>
                         </div>
-                        <h1>17</h1>
+                        <h1 id="hum"></h1>
                     </div>
 
                     <div class="card">
@@ -89,9 +89,21 @@
 
         <!--Sensor Update-->
         <script>
-            async function update() {
-                
+            async function getData() {
+                try {
+                    const response = await fetch('presult.php');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const data = await response.json(); // Parses JSON response from PHP
+                    console.log(data);
+                    //console.log("allo");
+                    document.getElementById('temp').innerHTML = `${data.temperature}`;
+                    document.getElementById('hum').innerHTML = `${data.humidity}`;
+                    document.getElementById('time').innerHTML = `${data.created_at}`;
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                }
             }
+            setInterval(getData,2000);
         </script>
     </body>
 </html>
