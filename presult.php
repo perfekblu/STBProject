@@ -30,14 +30,14 @@
     }*/
 
     if(!empty($data)){
-        $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
+        $sql = "INSERT INTO sensor_data (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
     }
 
     
     
     //Display all current users
-    $result = $conn->query("SELECT * FROM sensor_test ORDER BY id DESC LIMIT 1;");
+    $result = $conn->query("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 1;");
 
     /*while($row = $result->fetch_assoc()) {
         echo $row['Names'] . "\t";
