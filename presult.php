@@ -10,7 +10,7 @@
         echo "Connection failed";
         die ("Connection failed: {mysqli_connector_error()}");
     }
-    echo "Connected successfully"."<br>";
+    //echo "Connected successfully"."<br>";
 
     
     $json = file_get_contents('php://input');
