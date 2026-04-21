@@ -3,12 +3,6 @@
     $data = json_decode($json,true);
     //echo "$json";
     header('Content-Type: application/json');
-    echo json_encode($data);
-
-
-    $temp = $data['temp'];
-    $hum = $data['hum'];
-
-    
+    echo json_encode($data);    
 
 ?>
