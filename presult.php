@@ -15,8 +15,8 @@
     
     $json = file_get_contents('php://input');
     $data = json_decode($json,true);
-    echo file_get_contents('php://input') . "<br>" . "<br>";
-    echo "$data";
+    //echo file_get_contents('php://input') . "<br>" . "<br>";
+    //echo "$data";
 
     $temp = $data['temp'];
     $hum = $data['hum'];
