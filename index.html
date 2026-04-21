@@ -98,8 +98,8 @@
                     //console.log("allo");
                     document.getElementById('temp').innerHTML = `${data.temperature}°C`;
                     document.getElementById('hum').innerHTML = `${data.humidity}%`;
-                    document.getElementById('gas').innerHTML = `${data.gas}%`;
-                    document.getElementById('aqi').innerHTML = `${data.aqi}%`;
+                    document.getElementById('gas').innerHTML = `${data.gas}PPM`;
+                    document.getElementById('aqi').innerHTML = `${data.aqi}`;
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `${data.created_at}`;
                 } catch (error) {
