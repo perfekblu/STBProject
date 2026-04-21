@@ -46,9 +46,11 @@
 
     $row = $result->fetch_assoc();
 
-    echo $row['temperature'] . "°C" . "<br>";
-    echo $row['humidity'] . "%" . "<br>";
-    echo $row['created_at'] . "<br>";
+    echo json_encode($row);
+
+    //echo $row['temperature'] . "°C" . "<br>";
+    //echo $row['humidity'] . "%" . "<br>";
+    //echo $row['created_at'] . "<br>";
 
     mysqli_close($conn);
 
