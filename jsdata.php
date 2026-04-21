@@ -3,9 +3,9 @@
     $json = file_get_contents('php://input');
     $data = json_decode($json,true);
     //echo "$json";
-    //$hello = "{ "hello": "world" }";
-    //$response = json_encode($hello);
+    $hello = ["temperature": 25, "humidity": 34 ];
+    $response = json_encode($hello);
     
-    echo json_encode($data);
+    echo json_encode($hello);
 
 ?>
