@@ -56,7 +56,7 @@
                             <h3>GAS</h3>
                             <span class="material-symbols-outlined">detector_co</span>
                         </div>
-                        <h1>400</h1>
+                        <h1 id="gas"></h1>
                     </div>
 
                     <div class="card">
@@ -64,7 +64,7 @@
                             <h3>AQI</h3>
                             <span class="material-symbols-outlined">airwave</span>
                         </div>
-                        <h1>1</h1>
+                        <h1 id="aqi"></h1>
                     </div>
 
                     <div class="card">
@@ -72,7 +72,7 @@
                             <h3>CAPACITY</h3>
                             <span class="material-symbols-outlined">delete</span>
                         </div>
-                        <h1>50</h1>
+                        <h1 id="cap"></h1>
                     </div>
 
                 </div>
@@ -98,6 +98,9 @@
                     //console.log("allo");
                     document.getElementById('temp').innerHTML = `${data.temperature}°C`;
                     document.getElementById('hum').innerHTML = `${data.humidity}%`;
+                    document.getElementById('gas').innerHTML = `${data.gas}%`;
+                    document.getElementById('aqi').innerHTML = `${data.aqi}%`;
+                    document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `${data.created_at}`;
                 } catch (error) {
                     console.error('Fetch error:', error);
