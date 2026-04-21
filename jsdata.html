@@ -19,6 +19,8 @@
 
     </head>
     <body>
+        <div id="output"></div>
+
         <script>
             async function getData() {
                 try {
@@ -27,6 +29,7 @@
                     const data = await response.json(); // Parses JSON response from PHP
                     console.log(data);
                     console.log("allo");
+                    document.getElementById('output').innerHTML =  `Temp: ${data.temperature}°C<br>Humidity: ${data.humidity}%`;
                 } catch (error) {
                     console.error('Fetch error:', error);
                 }
