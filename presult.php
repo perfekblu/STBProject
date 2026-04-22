@@ -34,7 +34,7 @@
     }*/
 
     if(!empty($data)){
-        $sql = "INSERT INTO sensor_data (temperature,humidity,gas,tvoc,aqi,capacity) values ('$temp','$hum','$gas','$aqi','$cap');";
+        $sql = "INSERT INTO sensor_data (temperature,humidity,gas,tvoc,aqi,capacity) values ('$temp','$hum','$gas','$tvoc','$aqi','$cap');";
         $result = mysqli_query($conn, $sql);
     }
 
