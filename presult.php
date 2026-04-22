@@ -21,6 +21,7 @@
     $temp = $data['temp'];
     $hum = $data['hum'];
     $gas = $data['gas'];
+    $tvoc = $data['tvoc'];
     $aqi = $data['aqi'];
 
     //$temp = (int)$_POST['temp'];
