@@ -31,6 +31,7 @@
             <main class="main-container">
                 <div class="main-title">
                     <h2>DASHBOARD</h2>
+                    <h2 id="time"></h2>
                 </div>
 
                 <div class="main-cards">
@@ -101,7 +102,7 @@
                     document.getElementById('gas').innerHTML = `${data.gas}PPM`;
                     document.getElementById('aqi').innerHTML = `${data.aqi}`;
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
-                    document.getElementById('time').innerHTML = `${data.created_at}`;
+                    document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
                 } catch (error) {
                     console.error('Fetch error:', error);
                 }
