@@ -54,10 +54,18 @@
 
                     <div class="card">
                         <div class="card-inner">
-                            <h3>GAS</h3>
-                            <span class="material-symbols-outlined">detector_co</span>
+                            <h3>C02</h3>
+                            <span class="material-symbols-outlined">co2</span>
                         </div>
                         <h1 id="gas"></h1>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>TVOC</h3>
+                            <span class="material-symbols-outlined">detector_co</span>
+                        </div>
+                        <h1 id="tvoc"></h1>
                     </div>
 
                     <div class="card">
@@ -100,6 +108,7 @@
                     document.getElementById('temp').innerHTML = `${data.temperature}°C`;
                     document.getElementById('hum').innerHTML = `${data.humidity}%`;
                     document.getElementById('gas').innerHTML = `${data.gas}PPM`;
+                    document.getElementById('tvoc').innerHTML = `${data.gas}PPB`;
                     document.getElementById('aqi').innerHTML = `${data.aqi}`;
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
