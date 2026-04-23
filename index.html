@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script>
-            let x;
-        </script>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Admin Dashboard</title>
@@ -24,8 +20,8 @@
             <!--Header-->
             <header class="header">
                 <div class="header-left">
-                    <a class="active" href="">Home</a>
-                    <a href="">Graphs</a>
+                    <a class="active" href="index.html">Home</a>
+                    <a href="graph.html">Graphs</a>
                     <a href="">Users</a>
                 </div>
                 <div class="header-right">
@@ -35,8 +31,8 @@
                         <span class="material-symbols-outlined">error</span>
                     </div>
                     <script>
-
-
+                        let x;
+                        
                         setInterval(function dis() {
                             if (x >= 1000) {
                                 document.getElementById("alert").style.display = "";
@@ -44,9 +40,7 @@
                             else {
                                 document.getElementById("alert").style.display = "none";
                             }
-                        },1000);  
-                        
-
+                        },1000);
                     </script>
                 </div> 
 
@@ -118,13 +112,12 @@
             </main>
         </div>
 
-        <!--Custom JS-->
-        <script src="script.js"></script>
+
 
 
         <!--Sensor Update-->
         <script>
-            async function getData() {
+            setInterval(async function getData() {
                 try {
                     const response = await fetch('presult.php');
                     if (!response.ok) throw new Error('Network response was not ok');
@@ -145,10 +138,12 @@
                     console.error('Fetch error:', error);
                 }
                 
-            }
-            setInterval(getData,2000);
-
+            },2000);
             
         </script>
+
+        <!--Custom JS-->
+        <script src="script.js"></script>
+
     </body>
 </html>

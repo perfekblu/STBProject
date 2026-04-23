@@ -43,12 +43,17 @@ body {
 }
 
 .header-left a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #26105a;
+    color: white;
 }
 
 .header-left a.active {
     background-color: #947bce;
+    color: white;
+}
+
+.header-left a.active:hover {
+    background-color: #26105a ;
     color: white;
 }
 
@@ -67,11 +72,11 @@ body {
     font-size: 22px;
     line-height: 20px;
     cursor: pointer;
-     transition: 0.3s;
+    transition: 0.3s;
 }
 
 .closebtn:hover {
-     color: black;
+    color: black;
 }
 
 
