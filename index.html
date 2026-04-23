@@ -30,18 +30,6 @@
                         <strong>Warning! TVOC</strong> Exceeding Normal Level!
                         <span class="material-symbols-outlined">error</span>
                     </div>
-                    <script>
-                        let x;
-                        
-                        setInterval(function dis() {
-                            if (x >= 1000) {
-                                document.getElementById("alert").style.display = "";
-                            }
-                            else {
-                                document.getElementById("alert").style.display = "none";
-                            }
-                        },1000);
-                    </script>
                 </div> 
 
             </header>
@@ -117,6 +105,7 @@
 
         <!--Sensor Update-->
         <script>
+            let x;
             setInterval(async function getData() {
                 try {
                     const response = await fetch('presult.php');
@@ -136,6 +125,14 @@
 
                 } catch (error) {
                     console.error('Fetch error:', error);
+                }
+
+                
+                if (x >= 1000) {
+                    document.getElementById("alert").style.display = "";
+                }                        
+                else {
+                  document.getElementById("alert").style.display = "none";
                 }
                 
             },2000);

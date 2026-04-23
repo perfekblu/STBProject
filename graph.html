@@ -32,36 +32,30 @@
                     <script>
                         let x;
                         
-                        setInterval(function dis() {
-                            if (x >= 1000) {
-                                document.getElementById("alert").style.display = "";
-                            }
-                            else {
-                                document.getElementById("alert").style.display = "none";
-                            }
-                        },1000);
+                        setInterval(async function getData() {
+                            try {
+                                const response = await fetch('presult.php');
+                                if (!response.ok) throw new Error('Network response was not ok');
+                                const data = await response.json(); // Parses JSON response from PHP
+                                console.log(data);
+                    
+                                x = `${data.tvoc}`;
+
+                                } catch (error) {
+                                    console.error('Fetch error:', error);
+                                }
+
+                                if (x >= 1000) {
+                                    document.getElementById("alert").style.display = "";
+                                }
+                                else {
+                                    document.getElementById("alert").style.display = "none";
+                                }
+                            },2000);
+                        
                     </script>
                 </div> 
             </header>
         </div>
-
-        <!--Sensor Update-->
-        <script>
-            setInterval(async function getData() {
-                try {
-                    const response = await fetch('presult.php');
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    const data = await response.json(); // Parses JSON response from PHP
-                    console.log(data);
-                    
-                    x = `${data.tvoc}`;
-
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                }
-                
-            },2000);
-            
-        </script>
     </body>
 </html>
