@@ -31,14 +31,14 @@
                 <div class="header-right">
                     <div id="alert" style="display: none" class="alert">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        Alert Box
+                        CO2 Warning!
                         <span class="material-symbols-outlined">error</span>
                     </div>
                     <script>
 
 
                         setInterval(function dis() {
-                            if (x == 25) {
+                            if (x >= 1000) {
                             document.getElementById("alert").style.display = "";
                             }
                         },1000);  
@@ -135,8 +135,9 @@
                     document.getElementById('aqi').innerHTML = `${data.aqi}`;
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
-                    x = 25;
                     
+                    x = `${data.gas}`;
+
                 } catch (error) {
                     console.error('Fetch error:', error);
                 }
