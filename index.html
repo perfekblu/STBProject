@@ -31,7 +31,7 @@
                 <div class="header-right">
                     <div id="alert" style="display: none" class="alert">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        CO2 Warning!
+                        <strong>Warning! TVOC</strong> Exceeding Normal Level!
                         <span class="material-symbols-outlined">error</span>
                     </div>
                     <script>
@@ -39,7 +39,10 @@
 
                         setInterval(function dis() {
                             if (x >= 1000) {
-                            document.getElementById("alert").style.display = "";
+                                document.getElementById("alert").style.display = "";
+                            }
+                            else {
+                                document.getElementById("alert").style.display = "none";
                             }
                         },1000);  
                         
@@ -77,7 +80,7 @@
 
                     <div class="card">
                         <div class="card-inner">
-                            <h3>C02</h3>
+                            <h3>C0²</h3>
                             <span class="material-symbols-outlined">co2</span>
                         </div>
                         <h1 id="gas"></h1>
@@ -136,7 +139,7 @@
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
                     
-                    x = `${data.gas}`;
+                    x = `${data.tvoc}`;
 
                 } catch (error) {
                     console.error('Fetch error:', error);
