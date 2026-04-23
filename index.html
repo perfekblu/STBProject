@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            let x;
+        </script>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Admin Dashboard</title>
@@ -19,11 +23,30 @@
 
             <!--Header-->
             <header class="header">
-                <div class="header-left"></div>
-                
+                <div class="header-left">
+                    <a class="active" href="">Home</a>
+                    <a href="">Graphs</a>
+                    <a href="">Users</a>
+                </div>
                 <div class="header-right">
-                    <span class="material-symbols-outlined">notifications_active</span>
-                </div>  
+                    <div id="alert" style="display: none" class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        Alert Box
+                        <span class="material-symbols-outlined">error</span>
+                    </div>
+                    <script>
+
+
+                        setInterval(function dis() {
+                            if (x == 25) {
+                            document.getElementById("alert").style.display = "";
+                            }
+                        },1000);  
+                        
+
+                    </script>
+                </div> 
+
             </header>
 
             
@@ -107,16 +130,20 @@
                     //console.log("allo");
                     document.getElementById('temp').innerHTML = `${data.temperature}°C`;
                     document.getElementById('hum').innerHTML = `${data.humidity}%`;
-                    document.getElementById('gas').innerHTML = `${data.gas}PPM`;
+                    
                     document.getElementById('tvoc').innerHTML = `${data.tvoc}PPB`;
                     document.getElementById('aqi').innerHTML = `${data.aqi}`;
                     document.getElementById('cap').innerHTML = `${data.capacity}%`;
                     document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
+
                 } catch (error) {
                     console.error('Fetch error:', error);
                 }
+                document.getElementById('gas').innerHTML = `${data.gas}PPM`;
             }
             setInterval(getData,2000);
+
+            
         </script>
     </body>
 </html>
