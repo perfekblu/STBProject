@@ -13,6 +13,9 @@
 
         <!--Custom CSS-->
         <link rel="stylesheet" href="styles.css">
+
+        <!--Custom JS-->
+        <script src="script.js"></script>
     </head>
     <body>
         <div class="grid-container">
@@ -22,7 +25,7 @@
                 <div class="header-left">
                     <a class="active" href="index.html">Home</a>
                     <a href="graph.html">Graphs</a>
-                    <a href="">Users</a>
+                    <a href="users.html">Users</a>
                 </div>
                 <div class="header-right">
                     <div id="alert" style="display: none" class="alert">
@@ -105,42 +108,11 @@
 
         <!--Sensor Update-->
         <script>
-            let x;
-            setInterval(async function getData() {
-                try {
-                    const response = await fetch('presult.php');
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    const data = await response.json(); // Parses JSON response from PHP
-                    console.log(data);
-                    //console.log("allo");
-                    document.getElementById('temp').innerHTML = `${data.temperature}°C`;
-                    document.getElementById('hum').innerHTML = `${data.humidity}%`;
-                    document.getElementById('gas').innerHTML = `${data.gas}PPM`;
-                    document.getElementById('tvoc').innerHTML = `${data.tvoc}PPB`;
-                    document.getElementById('aqi').innerHTML = `${data.aqi}`;
-                    document.getElementById('cap').innerHTML = `${data.capacity}%`;
-                    document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
-                    
-                    x = `${data.tvoc}`;
 
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                }
-
-                
-                if (x >= 1000) {
-                    document.getElementById("alert").style.display = "";
-                }                        
-                else {
-                  document.getElementById("alert").style.display = "none";
-                }
-                
-            },2000);
             
         </script>
 
-        <!--Custom JS-->
-        <script src="script.js"></script>
+
 
     </body>
 </html>

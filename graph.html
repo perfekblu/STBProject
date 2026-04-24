@@ -17,6 +17,7 @@
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/5.3.5/apexcharts.min.js"></script>-->
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script src="script.js"></script>
+        
     </head>
     <body>
         <div class="grid-container">
@@ -24,7 +25,7 @@
                 <div class="header-left">
                     <a class="active" href="index.html">Home</a>
                     <a href="graph.html">Graphs</a>
-                    <a href="">Users</a>
+                    <a href="users.html">Users</a>
                 </div>
 
                 <div class="header-right">
@@ -33,31 +34,6 @@
                         <strong>Warning! TVOC</strong> Exceeding Normal Level!
                         <span class="material-symbols-outlined">error</span>
                     </div>
-                    <script>
-                        let x;
-                        
-                        setInterval(async function getData() {
-                            try {
-                                const response = await fetch('presult.php');
-                                if (!response.ok) throw new Error('Network response was not ok');
-                                const data = await response.json(); // Parses JSON response from PHP
-                                console.log(data);
-                    
-                                x = `${data.tvoc}`;
-
-                                } catch (error) {
-                                    console.error('Fetch error:', error);
-                                }
-
-                                if (x >= 1000) {
-                                    document.getElementById("alert").style.display = "";
-                                }
-                                else {
-                                    document.getElementById("alert").style.display = "none";
-                                }
-                            },2000);
-                        
-                    </script>
                 </div>
             </header>
 
@@ -171,7 +147,6 @@
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
-
                         </script>
                     </div> 
                 </div>
