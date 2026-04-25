@@ -87,7 +87,7 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <canvas id="chart"></canvas>
-                        <!--<button onclick="fetchData()">Fetch</button>-->
+                        <button onclick="fetchData()">Fetch</button>
                         <script>
 
                             const ctx = document.getElementById('chart');
@@ -117,7 +117,7 @@
 
 
                             async function fetchData() {
-                                const response = await fetch('graph.php');
+                                const response = await fetch('aa.json');
                                 if (!response.ok) throw new Error('Network response was not ok');
                                 const data = await response.json(); // Parses JSON response from PHP
                                 console.log(data);
@@ -128,13 +128,16 @@
                                 console.log(labels);
                                 console.log(value);
 
-                                if(chart.data.labels.lenght > 15) {
+                                if(chart.data.labels.length > 15) {
                                     chart.data.labels.shift();
                                     chart.data.datasets[0].data.shift();
                                 }
 
                                 chart.data.labels.push(labels);
                                 chart.data.datasets[0].data.push(value);
+
+                                
+
                                 chart.update();
                             };
                             setInterval(fetchData,5000);
