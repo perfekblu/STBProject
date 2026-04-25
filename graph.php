@@ -11,7 +11,7 @@
     }
 
     $result = $conn->query("SELECT temperature, 
-    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 30");
+    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1");
 
     $data = [];
 
