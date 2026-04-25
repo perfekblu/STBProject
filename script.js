@@ -28,4 +28,3 @@ setInterval(async function getData() {
             document.getElementById("alert").style.display = "none";
         }
 },2000);
-                            
