@@ -13,12 +13,10 @@
     $result = $conn->query("SELECT temperature, 
     DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1");
 
-    $data = [];
+    $row = $result->fetch_assoc();
 
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
+    echo json_encode($row);
 
-    echo json_encode($data);
+    mysqli_close($conn);
 
 ?>
