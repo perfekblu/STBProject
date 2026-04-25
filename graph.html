@@ -87,23 +87,23 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <canvas id="chart"></canvas>
+                        <button onclick="updateChart()">Fetch</button>
                         <script>
                         
-                        function updataChart(){
+                        function updateChart(){
                             async function fetchData() {
                                 const response = await fetch('graph.php');
                                 if (!response.ok) throw new Error('Network response was not ok');
                                 const data = await response.json(); // Parses JSON response from PHP
                                 console.log(data);
+                                console.log("a");
                                 return data;
 
-                                const labels = data.map(d => d.time);
-                                const temp = data.map(d => d.temp);
+                                const labels = data.map(time);
+                                const temp = data.map(temp);
                             };
 
-                            chart.data.labels.push(time);
-                            chart.data.datasets.data.push(temp);
-                            chart.update();
+                            
                         }
                             
 
