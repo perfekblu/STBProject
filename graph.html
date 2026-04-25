@@ -87,7 +87,7 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <canvas id="chart"></canvas>
-                        <button onclick="fetchData()">Fetch</button>
+                        <!--<button onclick="fetchData()">Fetch</button>-->
                         <script>
 
                             const ctx = document.getElementById('chart');
@@ -123,6 +123,11 @@
                                 const value  = data.gas;
                                 console.log(labels);
                                 console.log(value);
+
+                                if(chart.data.labels.lenght > 15) {
+                                    chart.data.labels.shift();
+                                    chart.data.datasets[0].data.shift();
+                                }
 
                                 chart.data.labels.push(labels);
                                 chart.data.datasets[0].data.push(value);
