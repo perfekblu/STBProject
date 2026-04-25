@@ -87,39 +87,18 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <canvas id="chart"></canvas>
-                        <button onclick="updateChart()">Fetch</button>
+                        <button onclick="fetchData()">Fetch</button>
                         <script>
-                        
-                        function updateChart(){
-                            async function fetchData() {
-                                const response = await fetch('graph.php');
-                                if (!response.ok) throw new Error('Network response was not ok');
-                                const data = await response.json(); // Parses JSON response from PHP
-                                console.log(data);
-                                console.log("a");
-                                return data;
-
-                                const labels = data.map(time);
-                                const temp = data.map(temp);
-                            };
-
-                            
-                        }
-                            
-
-                            
-                            
-
 
                             const ctx = document.getElementById('chart');
 
-                            new Chart(ctx, {
+                            let chart = new Chart(ctx, {
                                 type: 'line',
                                 data: {
-                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                    //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                                     datasets: [{
                                         label: '# of Votes',
-                                        data: [12, 19, 3, 5, 2, 3],
+                                        //data: [12, 19, 3, 5, 2, 3],
                                         borderWidth: 1
                                     }]
                                 },
@@ -131,6 +110,25 @@
                                 }
                                 }
                             });
+
+
+                            async function fetchData() {
+                                const response = await fetch('graph.php');
+                                if (!response.ok) throw new Error('Network response was not ok');
+                                const data = await response.json(); // Parses JSON response from PHP
+                                console.log(data);
+                                
+                                
+                                const labels = data.created_at;
+                                const temp  = data.temperature;
+
+                                chart.data.labels.push(labels);
+                                chart.data.datasets[0].data.push(temp);
+                                chart.update();
+                            };
+                            setInterval(fetchData,1000);
+
+                            
                         </script>
                         
                     </div> 
