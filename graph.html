@@ -97,7 +97,7 @@
                                 data: {
                                     //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                                     datasets: [{
-                                        label: '# of Votes',
+                                        label: 'Gas',
                                         //data: [12, 19, 3, 5, 2, 3],
                                         borderWidth: 1
                                     }]
@@ -120,12 +120,12 @@
                                 
                                 
                                 const labels = data.time;
-                                const temp  = data.temperature;
+                                const value  = data.gas;
                                 console.log(labels);
-                                console.log(temp);
+                                console.log(value);
 
                                 chart.data.labels.push(labels);
-                                chart.data.datasets[0].data.push(temp);
+                                chart.data.datasets[0].data.push(value);
                                 chart.update();
                             };
                             setInterval(fetchData,1000);
