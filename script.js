@@ -17,14 +17,15 @@ setInterval(async function getData() {
                     
         x = `${data.tvoc}`;
 
-        } catch (error) {
-            console.error('Fetch error:', error);
-        }
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
 
-        if (x >= 1000) {
-            document.getElementById("alert").style.display = "";
-        }
-        else {
-            document.getElementById("alert").style.display = "none";
-        }
+    if (x >= 1000) {
+        document.getElementById("alert").style.display = "";
+    }
+    else {
+        document.getElementById("alert").style.display = "none";
+    }
 },2000);
+

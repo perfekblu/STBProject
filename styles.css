@@ -151,13 +151,13 @@ body {
 }
 
 .charts-card {
-    background-color: #263043;
+    background-color: hwb(138 51% 20%);
     margin-bottom: 20px;
     padding: 25px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
-    box-shadow: 0 6px 7 -4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 7 -4px rgba(163, 15, 15, 0.2);
 }
 
 .chart-title {
