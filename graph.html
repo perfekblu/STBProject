@@ -113,13 +113,13 @@
 
 
                             async function fetchData() {
-                                const response = await fetch('graph.php');
+                                const response = await fetch('aa.json');
                                 if (!response.ok) throw new Error('Network response was not ok');
                                 const data = await response.json(); // Parses JSON response from PHP
                                 console.log(data);
                                 
                                 
-                                const labels = data.time;
+                                const labels = data.created_at;
                                 const temp  = data.temperature;
                                 console.log(time);
                                 console.log(temperature);
