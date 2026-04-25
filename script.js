@@ -16,7 +16,6 @@ setInterval(async function getData() {
         document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
                     
         x = `${data.tvoc}`;
-        return x;
 
     } catch (error) {
         console.error('Fetch error:', error);
