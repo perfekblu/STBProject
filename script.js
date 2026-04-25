@@ -1,4 +1,4 @@
-var x;
+let x;
                         
 setInterval(async function getData() {
     try {
