@@ -32,8 +32,10 @@
         die("Unknown card");
     }
 
-    $stmt = $conn->prepare("INSERT INTO users_login (user_id) VALUES (?)");
+    $stmt = $conn->prepare("INSERT INTO users_login (user_id,name) VALUES (?,?)");
     $stmt->bind_param("i", $user['id']);
+    $stmt->execute();
+    $stmt->bind_param("s", $user['name']);
     $stmt->execute();
 
     echo "Login recorded for " . $user['name'];
