@@ -1,5 +1,3 @@
-let x;
-                        
 setInterval(async function getData() {
     try {
         const response = await fetch('presult.php');
@@ -14,18 +12,9 @@ setInterval(async function getData() {
         document.getElementById('aqi').innerHTML = `${data.aqi}`;
         document.getElementById('cap').innerHTML = `${data.capacity}%`;
         document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
-                    
-        x = `${data.tvoc}`;
 
     } catch (error) {
         console.error('Fetch error:', error);
-    }
-
-    if (x >= 1000) {
-        document.getElementById("alert").style.display = "";
-    }
-    else {
-        document.getElementById("alert").style.display = "none";
     }
 },2000);
 
