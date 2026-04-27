@@ -116,7 +116,7 @@
 
                             async function fetchData() {
                                 //Get new data from database
-                                const response = await fetch('aa.json');
+                                const response = await fetch('graph.php');
                                 if (!response.ok) throw new Error('Network response was not ok');
                                 const data = await response.json(); // Parses JSON response from PHP
                                 console.log(data);
