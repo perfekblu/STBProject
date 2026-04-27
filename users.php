@@ -29,14 +29,16 @@
     $user = $result->fetch_assoc();
 
     if (!$user) {
-        die("Unknown card");
+        //die("Unknown card");
+        die("0");
     }
 
     $stmt = $conn->prepare("INSERT INTO users_login (user_id,name) VALUES (?,?)");
     $stmt->bind_param("is", $user['id'],$user['name']);
     $stmt->execute();
 
-    echo "Login recorded for " . $user['name'];
+    //echo "Login recorded for " . $user['name'];
+    echo "1";
 
     $conn->close();
 
