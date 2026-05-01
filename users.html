@@ -39,62 +39,18 @@
             <!--Main-->
             <main class="main-container">
                 <div class="main-title">
-                    <h2>DASHBOARD</h2>
+                    <h2>Users</h2>
                     <h2 id="time"></h2>
                 </div>
 
-                <div class="main-cards">
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>TEMPERATURE</h3>
-                            <span class="material-symbols-outlined">device_thermostat</span>
-                        </div>
-                        <h1 id="temp"></h1>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>HUMIDITY</h3>
-                            <span class="material-symbols-outlined">humidity_mid</span>
-                        </div>
-                        <h1 id="hum"></h1>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>C0²</h3>
-                            <span class="material-symbols-outlined">co2</span>
-                        </div>
-                        <h1 id="gas"></h1>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>TVOC</h3>
-                            <span class="material-symbols-outlined">detector_co</span>
-                        </div>
-                        <h1 id="tvoc"></h1>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>AQI</h3>
-                            <span class="material-symbols-outlined">airwave</span>
-                        </div>
-                        <h1 id="aqi"></h1>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <h3>CAPACITY</h3>
-                            
-                        </div>
-                        
-                    </div>
-
-                </div>
-
+                <form>
+                    <select name="users" onchange="userinfo(this.value)">
+                        <option value="">Select a user:</option>
+                        <option value="1">Klein</option>
+                        <option value="2">Laurie</option>
+                        <option value="3">Sarah</option>
+                    </select>
+                </form>
                 
 
 
