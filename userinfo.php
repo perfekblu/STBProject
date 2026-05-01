@@ -1,4 +1,6 @@
 <?php
+    $q = intval($_GET['q']);
+    
     echo "allo";
 
     //Connect to database
@@ -14,7 +16,7 @@
     }
     //echo "Connected successfully"."<br>";
 
-    $q = intval($_GET['q']);
+    
     $sql = "SELECT * FROM users_login WHERE user_id = '".$q."'";
     $result = mysqli_query($conn,$sql);
 
