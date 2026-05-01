@@ -1,4 +1,6 @@
 <?php
+    echo "allo";
+
     //Connect to database
     $server = "localhost";
     $username = "aba";
