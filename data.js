@@ -14,7 +14,7 @@ setInterval(async function getData() {
         document.getElementById('aqi').innerHTML = `${data.aqi}`;
         document.getElementById('cap').innerHTML = `${data.capacity}%`;
         document.getElementById('time').innerHTML = `Created at: ${data.created_at}`;
-        console.log("allo");
+
     } catch (error) {
         console.error('Fetch error:', error);
     }
