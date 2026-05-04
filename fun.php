@@ -1,3 +1,3 @@
 <?php
-    echo "fun";
+    echo json_encode("fun");
 ?>
