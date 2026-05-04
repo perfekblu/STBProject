@@ -1,4 +1,4 @@
 <?php
-    $fun = "fun";
+    $fun = ["fun": "fun"];
     echo json_encode($fun);
 ?>
