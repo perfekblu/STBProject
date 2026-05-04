@@ -6,7 +6,7 @@ async function userinfo(str) {
         const data = await response.json(); // Parses JSON response from PHP
         console.log(data);
 
-        document.getElementById("usertxt").innerHTML = `${data.fun}`;
+        document.getElementById("usertxt").innerHTML = `${data}`;
 
 
 
