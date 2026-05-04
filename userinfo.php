@@ -20,21 +20,12 @@
     $sql = "SELECT * FROM users_login WHERE user_id = '".$q."'";
     $result = mysqli_query($conn,$sql);
 
-    echo "<table>
-    <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-    <th>Hometown</th>
-    <th>Job</th>
-    </tr>";
-    while($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['name'] . "</td>";
-    echo "<td>" . $row['login'] . "</td>";
-    echo "</tr>";
+
+    while($row = $result->fetch_assoc()) {
+        $tab[] = $row["name"], $row["login"];
     }
-    echo "</table>";
+
+    echo json_encode($tab);
 
     mysqli_close($con);
 
