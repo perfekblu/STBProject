@@ -27,7 +27,7 @@
 
     echo json_encode($tab);
 
-    mysqli_close($con);
+    mysqli_close($conn);
 
 
 ?>

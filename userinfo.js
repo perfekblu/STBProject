@@ -9,11 +9,11 @@ async function userinfo(str) {
         //document.getElementById("usertxt").innerHTML = `${data.fun}`;
   
         // Instead of a while loop, JS typically uses forEach for arrays
-        data.forEach(user => {
+        /*data.forEach(user => {
             const div = document.createElement('div');
             div.innerHTML = `<strong>${user.name}</strong> - ${user.email}`;
             container.appendChild(div);
-        });
+        });*/
 
 
 
