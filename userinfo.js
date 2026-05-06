@@ -1,7 +1,15 @@
 async function userinfo(str) {
     try {
+        let data = new URLSearchParams();
+        data.append(`q`, str);
+        console.log(data);
+
+        const options = {
+            method: `GET`,
+            body: data
+        };
         //Get user data from database
-        const response = await fetch('userinfo.php');
+        const response = await fetch('userinfo.php',options);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json(); // Parses JSON response from PHP
         console.log(data);
