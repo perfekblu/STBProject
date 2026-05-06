@@ -25,7 +25,7 @@
         $tab[] = $row["name"], $row["login"];
     }*/
 
-    echo json_encode($tab);
+    //echo json_encode($tab);
 
     mysqli_close($conn);
 
