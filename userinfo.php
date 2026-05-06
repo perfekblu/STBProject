@@ -20,10 +20,10 @@
     $sql = "SELECT * FROM users_login WHERE user_id = '".$q."'";
     $result = mysqli_query($conn,$sql);
 
-    echo "$result";
-    /*while($row = $result->fetch_assoc()) {
-        $tab[] = $row["name"], $row["login"];
-    }*/
+    while($row = $result->fetch_assoc()) {
+        //$tab[] = $row["name"], $row["login"];
+        echo "Name: " . $row["name"] . " - Login: " . $row["login"] . "<br>";
+    }
 
     //echo json_encode($tab);
 
