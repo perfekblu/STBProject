@@ -17,6 +17,7 @@ async function userinfo(str) {
         //document.getElementById("usertxt").innerHTML = `${data.fun}`;
   
         table.innerHTML = "";
+        document.getElementById("table").innerHTML = "<b>Person info will be listed here.</b>";
         let myTable = document.querySelector('#table');
 
         /*data = [
