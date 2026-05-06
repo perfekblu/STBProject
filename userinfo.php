@@ -20,10 +20,11 @@
     $sql = "SELECT * FROM users_login WHERE user_id = '".$q."'";
     $result = mysqli_query($conn,$sql);
 
+    echo "$result";
 
-    while($row = $result->fetch_assoc()) {
+    /*while($row = $result->fetch_assoc()) {
         $tab[] = $row["name"], $row["login"];
-    }
+    }*/
 
     echo json_encode($tab);
 
