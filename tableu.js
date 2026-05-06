@@ -30,7 +30,7 @@
                 table.appendChild(row);
             });
 
-            document.body.appendChild(table);
+            myTable.appendChild(table);
         }
 
         createTable();

@@ -16,6 +16,7 @@ async function userinfo(str) {
 
         //document.getElementById("usertxt").innerHTML = `${data.fun}`;
   
+        table.innerHTML = "";
         let myTable = document.querySelector('#table');
 
         /*data = [
@@ -23,7 +24,7 @@ async function userinfo(str) {
             { name: 'Vijay', age: 30, city: 'Muzaffarpur' },
             { name: 'Gaurav', age: 22, city: 'Noida' },
         ];*/
-
+        
         function createTable(){
             let table = document.createElement('table');
             table.setAttribute('border', '1');
