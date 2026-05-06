@@ -18,11 +18,11 @@ async function userinfo(str) {
   
         let myTable = document.querySelector('#table');
 
-         data = [
+        /*data = [
             { name: 'Rahul', age: 25, city: 'New Delhi' },
             { name: 'Vijay', age: 30, city: 'Muzaffarpur' },
             { name: 'Gaurav', age: 22, city: 'Noida' },
-        ];
+        ];*/
 
         function createTable(){
             let table = document.createElement('table');
