@@ -17,6 +17,7 @@
         <!--Custom JS-->
         <!--<script src="alarm.js"></script>-->
         <script src="userinfo.js"></script>
+        <!--<script src="tableu.js"></script>
         
     </head>
     <body>
@@ -42,19 +43,31 @@
             <main class="main-container">
                 <div class="main-title">
                     <h2>Users</h2>
-                    <h2 id="time"></h2>
                 </div>
 
-                <form>
-                    <select name="users" onchange="userinfo(this.value)">
-                        <option value="">Select a user:</option>
-                        <option value="1">Klein</option>
-                        <option value="2">Laurie</option>
-                        <option value="3">Sarah</option>
-                    </select>
-                </form>
-                <br>
-                <div id="table"><b>Person info will be listed here.</b></div>
+                <div class="main-cards">
+                    <div class="card">
+                        <form>
+                        <select name="users" onchange="userinfo(this.value)">
+                            <option value="">Select a user:</option>
+                            <option value="1">Klein</option>
+                            <option value="2">Laurie</option>
+                            <option value="3">Sarah</option>
+                        </select>
+                        </form>
+                        <br>
+                        
+                        <div id="table"><b>Person info will be listed here.</b></div>
+                        <script>
+                            
+                            
+                            
+                        </script>
+                    </div>
+
+                    
+                </div>
+                
                 
 
 

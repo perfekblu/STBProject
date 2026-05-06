@@ -1,24 +1,6 @@
-async function userinfo(str) {
-    try {
-        let dataq = new URLSearchParams();
-        dataq.append(`q`, str);
-        console.log(dataq);
-
-        const options = {
-            method: `POST`,
-            body: dataq
-        };
-        //Get user data from database
-        const response = await fetch('userinfo.php',options);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json(); // Parses JSON response from PHP
-        console.log(data);
-
-        //document.getElementById("usertxt").innerHTML = `${data.fun}`;
-  
         let myTable = document.querySelector('#table');
 
-        let data = [
+        const data = [
             { name: 'Rahul', age: 25, city: 'New Delhi' },
             { name: 'Vijay', age: 30, city: 'Muzaffarpur' },
             { name: 'Gaurav', age: 22, city: 'Noida' },
@@ -26,7 +8,7 @@ async function userinfo(str) {
 
         function createTable(){
             let table = document.createElement('table');
-            table.setAttribute('border', '1');
+            
 
             let headerRow = document.createElement('tr');
             Object.keys(data[0]).forEach(key => {
@@ -48,14 +30,7 @@ async function userinfo(str) {
                 table.appendChild(row);
             });
 
-            myTable.appendChild(table);
+            document.body.appendChild(table);
         }
 
         createTable();
-
-
-    } catch (error) {
-        console.error('Fetch Error: ', error);
-    }
-    
-}
