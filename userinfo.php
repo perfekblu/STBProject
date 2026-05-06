@@ -1,7 +1,7 @@
 <?php
     $q = intval($_GET['q']);
     
-    echo "allo";
+    echo "$q";
 
     //Connect to database
     $server = "localhost";
