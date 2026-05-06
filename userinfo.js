@@ -12,7 +12,7 @@ async function userinfo(str) {
         const response = await fetch('userinfo.php',options);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.text(); // Parses JSON response from PHP
-        console.log(data);
+        console.log(data[2]);
 
         //document.getElementById("usertxt").innerHTML = `${data.fun}`;
   
