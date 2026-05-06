@@ -16,13 +16,34 @@ async function userinfo(str) {
 
         //document.getElementById("usertxt").innerHTML = `${data.fun}`;
   
-        // Instead of a while loop, JS typically uses forEach for arrays
-        /*data.forEach(user => {
-            const div = document.createElement('div');
-            div.innerHTML = `<strong>${user.name}</strong> - ${user.email}`;
-            container.appendChild(div);
-        });*/
+        function createTable(){
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');
 
+            let headerRow = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+                let th = document.createElement('th');
+                th.appendChild(document.createTextNode(key));
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+
+            data.forEach(item => {
+                let row = document.createElement('tr');
+
+                Object.values(item).forEach(value => {
+                    let td = document.createElement('td');
+                    td.appendChild(document.createTextNode(value));
+                    row.appendChild(td);
+                });
+                table.appendChild(row);
+            });
+
+            document.body.appendChild(table);
+        }
+
+        createTable();
 
 
     } catch (error) {
