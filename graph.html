@@ -95,7 +95,7 @@
                             async function graphinfo(str) {
                                 try {
                                     sto = str;
-                                    console.log("STO VALUE: ",sto);
+                                    //console.log("STO VALUE: ",sto);
                                     let dataq = new URLSearchParams();
                                     dataq.append(`q`, str);
                                     console.log(dataq.getAll(`q`));
@@ -136,8 +136,9 @@
 
                             async function graphinfo1() {
                                 try {
+                                    console.log("STO VALUE: ",sto);
                                     let dataq = new URLSearchParams();
-                                    dataq.append(`q`, str);
+                                    dataq.append(`q`, sto);
                                     console.log(dataq.getAll(`q`));
 
                                     const options = {
