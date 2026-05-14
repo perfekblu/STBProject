@@ -18,6 +18,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="alarm.js"></script>
         
+        
     </head>
     <body>
         <div class="grid-container">
@@ -51,19 +52,64 @@
 
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
+                        <form>
+                        <select name="users" onchange="graphinfo(this.value)">
+                            <option value="">Select Data:</option>
+                            <option value="1">Temperature</option>
+                            <option value="2">Humidity</option>
+                            <option value="3">Gas</option>
+                            <option value="4">TVOC</option>
+                            <option value="5">Capacity</option>
+                        </select>
+                        </form>
+
                         <canvas id="chart"></canvas>
                         <button onclick="fetchData()">Fetch</button>
                         <script>
+                            
+                            let datat;
+                            let laabels;
+                            let vaalues;
+                            async function userinfo(str) {
+                                try {
+                                    let dataq = new URLSearchParams();
+                                    dataq.append(`q`, str);
+                                    console.log(dataq);
+
+                                    const options = {
+                                        method: `POST`,
+                                        body: dataq
+                                    };
+                                    //Get user data from database
+                                    const response = await fetch('graphselect.php',options);
+                                    if (!response.ok) throw new Error('Network response was not ok');
+                                    datat = await response.json(); // Parses JSON response from PHP
+                                    console.log(datat);
+
+                                    //document.getElementById("usertxt").innerHTML = `${data.fun}`;
+
+                                    datat.forEach(row => {
+                                        labels.push(row.time_recorded);
+                                        values.push(row.gas);
+                                    });
+
+                                } catch (error) {
+                                    console.error('Fetch Error: ', error);
+                                }
+                            }
+
                             
                             //Create Chart
                             const ctx = document.getElementById('chart');
 
                             let chart = new Chart(ctx, {
                                 type: 'line', //Type of chart
+                                labels: laables,
                                 data: {
                                     datasets: [{
                                         label: 'Gas', //Data label
-                                        borderWidth: 1
+                                        borderWidth: 1,
+                                        data: vaalues,
                                     }]
                                 },
                                 options: {
@@ -77,7 +123,7 @@
                                 }
                             });
 
-
+                        
 
                             async function fetchData() {
                                 //Get new data from database
@@ -93,7 +139,7 @@
                                 console.log(value);
 
                                 //Only display 16 points at a time
-                                if(chart.data.labels.length > 15) {
+                                if(chart.data.labels.length > 30) {
                                     chart.data.labels.shift();
                                     chart.data.datasets[0].data.shift();
                                 }
