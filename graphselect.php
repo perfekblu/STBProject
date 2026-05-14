@@ -23,7 +23,7 @@
     //$stmt->execute();
     //$result = $stmt->get_result();
 
-    $sql = "SELECT "$q" FROM sensor_data ORDER BY id DESC LIMIT 30";
+    $sql = "SELECT $q FROM sensor_data ORDER BY id DESC LIMIT 30";
     $result = mysqli_query($conn, $sql);
     $result = $conn->query("INSERT INTO lcap (lcap) values ('$lcap');");
 
