@@ -10,7 +10,7 @@
         die ("Connection failed: {mysqli_connector_error()}");
     }
 
-    $result = $conn->query("SELECT gas, 
+    $result = $conn->query("SELECT gas as value, 
     DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1");
 
     $row = $result->fetch_assoc();
