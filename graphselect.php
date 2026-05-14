@@ -1,6 +1,8 @@
 <?php
     $q = intval($_POST['q']);
 
+    echo "$q";
+
     
     $server = "localhost";
     $username = "aba";
@@ -16,8 +18,8 @@
     //$result = $conn->query("SELECT $q, 
     //DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 30");
 
-    $stmt = $mysqli->prepare("SELECT ? FROM sensor_data ORDER BY id DESC LIMIT 30");
-    $stmt->bind_param("s", $q); // "s" = string, "i" = integer, "d" = double
+    $stmt = $mysqli->prepare("SELECT $q FROM sensor_data ORDER BY id DESC LIMIT 30");
+    //$stmt->bind_param("s", $q); // "s" = string, "i" = integer, "d" = double
     $stmt->execute();
 
     $result = $stmt->get_result();
