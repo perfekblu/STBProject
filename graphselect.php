@@ -18,11 +18,16 @@
     //$result = $conn->query("SELECT $q, 
     //DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 30");
 
-    $stmt = $mysqli->prepare("SELECT $q FROM sensor_data ORDER BY id DESC LIMIT 30");
+    //$stmt = $mysqli->prepare("SELECT $q FROM sensor_data ORDER BY id DESC LIMIT 30");
     //$stmt->bind_param("s", $q); // "s" = string, "i" = integer, "d" = double
-    $stmt->execute();
+    //$stmt->execute();
+    //$result = $stmt->get_result();
 
-    $result = $stmt->get_result();
+    $sql = "SELECT "$q" FROM sensor_data ORDER BY id DESC LIMIT 30";
+    $result = mysqli_query($conn, $sql);
+    $result = $conn->query("INSERT INTO lcap (lcap) values ('$lcap');");
+
+    
 
     while ($row = mysqli_fetch_assoc($result)){
         $data[] = $row;
