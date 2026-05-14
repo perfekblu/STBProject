@@ -6,7 +6,7 @@ setInterval(async function getData() {
         //Get TVOC value from database
         const response = await fetch('presult.php');
         if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.text(); // Parses JSON response from PHP
+        const data = await response.json(); // Parses JSON response from PHP
         console.log(data);
                     
         x = `${data.tvoc}`; //Assign value to var
