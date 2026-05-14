@@ -134,7 +134,7 @@
                             }
                             //graphinfo();
 
-                            async function graphinfo1() {
+                            async function fetctData() {
                                 try {
                                     console.log("STO VALUE: ",sto);
                                     let dataq = new URLSearchParams();
@@ -146,12 +146,13 @@
                                         body: dataq
                                     };
                                     //Get user data from database
-                                    const response = await fetch('graphselect1.php',options);
+                                    const response = await fetch('graph.php',options);
                                     if (!response.ok) throw new Error('Network response was not ok');
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-                                    
+                                    const labels = data.time;
+                                    const value = data.value;
                                     
                                     //Only display 16 points at a time
                                     if(chart.data.labels.length > 30) {
@@ -160,7 +161,7 @@
                                     }
 
 
-                                    data.forEach(row => {
+                                    /*data.forEach(row => {
                                         //labels.push(row.time_recorded);
                                         //values.push(row.gas);
 
@@ -173,17 +174,19 @@
                                         chart.data.labels.push(labels);
                                         chart.data.datasets[0].data.push(value);
                                         
-                                    });
+                                    });*/
+                                    chart.data.labels.push(labels);
+                                    chart.data.datasets[0].data.push(value);
                                     chart.update();
 
                                 } catch (error) {
                                     console.error('Fetch Error: ', error);
                                 }
-                            }setInterval(graphinfo1,5000); //Repeat function every 5s
+                            }setInterval(fetchData,5000); //Repeat function every 5s
                             //graphinfo1();
 
 
-                            async function fetchData(str) {
+                            /*async function fetchData(str) {
                                 try{
                                     let dataq = new URLSearchParams();
                                     dataq.append(`q`, str);
@@ -202,10 +205,10 @@
                                     console.log(data);
                                     
                                     //Assign data to var
-                                    /*const labels = `${data.time}`;
+                                    const labels = `${data.time}`;
                                     const value  = `${data.value}`;
                                     console.log(labels);
-                                    console.log(value);*/
+                                    console.log(value);
 
                                     //Only display 16 points at a time
                                     if(chart.data.labels.length > 30) {
@@ -236,7 +239,7 @@
                                         console.error('Fetch Error: ', error);
                                     }
                                 };
-                            //setInterval(fetchData,5000); //Repeat function every 5s
+                            //setInterval(fetchData,5000); //Repeat function every 5s*/
 
                             
                         </script>
