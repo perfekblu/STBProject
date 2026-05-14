@@ -110,7 +110,10 @@
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-                                    chart.reset();
+                                    chart.data.datasets.forEach(dataset => {
+                                        dataset.data = [];
+                                    });
+                                    chart.data.labels = [];
                                     chart.update();
 
                                     data.forEach(row => {
