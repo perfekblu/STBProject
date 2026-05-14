@@ -151,6 +151,8 @@ body {
 }
 
 .charts-card {
+    width: 1000px;       /* Fill the parent width */
+    height:650px;     /* Set a clear vertical space */
     background-color: hwb(138 51% 20%);
     margin-bottom: 20px;
     padding: 25px;
