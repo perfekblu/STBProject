@@ -26,7 +26,6 @@
     $cap = $data['cap'];
     $lcap = $data['lcap'];
 
-    echo json_encode($lcap);
 
     //$temp = (int)$_POST['temp'];
     //$hum = (int)$_POST['hum'];
