@@ -13,8 +13,14 @@
         die ("Connection failed: {mysqli_connector_error()}");
     }
 
-    $result = $conn->query("SELECT $q, 
-    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 30");
+    //$result = $conn->query("SELECT $q, 
+    //DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 30");
+
+    $stmt = $mysqli->prepare("SELECT ? FROM sensor_data ORDER BY id DESC LIMIT 30");
+    $stmt->bind_param("s", $q); // "s" = string, "i" = integer, "d" = double
+    $stmt->execute();
+
+    $result = $stmt->get_result();
 
     while ($row = mysqli_fetch_assoc($result)){
         $data[] = $row;
