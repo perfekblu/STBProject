@@ -26,9 +26,6 @@
     $cap = $data['cap'];
     $lcap = $data['lcap'];
 
-    $json = json_encode($data,true);
-    file_put_contents('lcap.txt',$json);
-
 
     //$temp = (int)$_POST['temp'];
     //$hum = (int)$_POST['hum'];
@@ -37,6 +34,8 @@
         $sql = "INSERT INTO sensor_test (temperature,humidity) values ('$temp','$hum');";
         $result = mysqli_query($conn, $sql);
     }*/
+
+    $sql = "INSERT INTO lcap (lcap) values ('$lcap');";
 
     if(!empty($data)){
         $sql = "INSERT INTO sensor_data (temperature,humidity,gas,tvoc,aqi,capacity) values ('$temp','$hum','$gas','$tvoc','$aqi','$cap');";
@@ -55,8 +54,7 @@
 
     $row = $result->fetch_assoc();
 
-    $json = file_get_contents('lcap.txt');
-    $data = json_decode($json,true);
+    $result = $conn->query("SELECT * FROM lcap ORDER BY id DESC LIMIT 1;");
 
     $row["lcap"] = $lcap;
 
