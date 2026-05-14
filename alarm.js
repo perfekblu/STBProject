@@ -1,4 +1,5 @@
 let x;
+let y;
                         
 setInterval(async function getData() {
     try {
