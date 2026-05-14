@@ -67,23 +67,17 @@
                         <button onclick="graphinfo()">Fetch</button>
                         <script>
                             
-                            
-                            let laabels;
-                            let vaalues;
-                            
-
-                            
                             //Create Chart
                             const ctx = document.getElementById('chart');
 
                             let chart = new Chart(ctx, {
                                 type: 'line', //Type of chart
                                 data: {
-                                    labels: laabels,
+                                    //labels: laabels,
                                     datasets: [{
                                         label: 'Gas', //Data label
                                         borderWidth: 1,
-                                        data: vaalues,
+                                        //data: vaalues,
                                     }]
                                 },
                                 options: {
