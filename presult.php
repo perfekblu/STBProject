@@ -27,7 +27,7 @@
     $lcap = $data['lcap'];
 
     $json - json_encode($data,true);
-    file_put_contents('lcap.txt',$json)
+    file_put_contents('lcap.txt',$json);
 
 
     //$temp = (int)$_POST['temp'];
