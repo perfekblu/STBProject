@@ -26,6 +26,9 @@
     $cap = $data['cap'];
     $lcap = $data['lcap'];
 
+    $json - json_encode($data,true);
+    file_put_contents('lcap.txt',$json)
+
 
     //$temp = (int)$_POST['temp'];
     //$hum = (int)$_POST['hum'];
@@ -51,6 +54,9 @@
     }*/
 
     $row = $result->fetch_assoc();
+
+    $json = file_get_contents('lcap.txt');
+    $data = json_decode($json,true);
 
     $row["lcap"] = $lcap;
 
