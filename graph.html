@@ -104,10 +104,10 @@
                                     //Get user data from database
                                     const response = await fetch('graphselect.php',options);
                                     if (!response.ok) throw new Error('Network response was not ok');
-                                    const data = await response.text(); // Parses JSON response from PHP
+                                    const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-
+                                    chart.innerHTML = "";
                                     
 
                                     data.forEach(row => {
