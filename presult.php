@@ -35,7 +35,7 @@
         $result = mysqli_query($conn, $sql);
     }*/
 
-    $sql = "INSERT INTO lcap (lcap) values ('$lcap');";
+    $result = $conn->query("INSERT INTO lcap (lcap) values ('$lcap');");
 
     if(!empty($data)){
         $sql = "INSERT INTO sensor_data (temperature,humidity,gas,tvoc,aqi,capacity) values ('$temp','$hum','$gas','$tvoc','$aqi','$cap');";
