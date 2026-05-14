@@ -153,10 +153,10 @@
                                     console.log(data);
                                     
                                     //Assign data to var
-                                    const labels = `${data.time}`;
+                                    /*const labels = `${data.time}`;
                                     const value  = `${data.value}`;
                                     console.log(labels);
-                                    console.log(value);
+                                    console.log(value);*/
 
                                     //Only display 16 points at a time
                                     if(chart.data.labels.length > 30) {
@@ -164,9 +164,24 @@
                                         chart.data.datasets[0].data.shift();
                                     }
 
+                                    data.forEach(row => {
+                                        //labels.push(row.time_recorded);
+                                        //values.push(row.gas);
+
+                                        const labels = `${row.time}`;
+                                        const value  = `${row.value}`;
+
+                                        //console.log(labels);
+                                        //console.log(value);
+
+                                        chart.data.labels.push(labels);
+                                        chart.data.datasets[0].data.push(value);
+                                        
+                                    });
+
                                     //Update chart with new values
-                                    chart.data.labels.push(labels);
-                                    chart.data.datasets[0].data.push(value);
+                                    //chart.data.labels.push(labels);
+                                    //chart.data.datasets[0].data.push(value);
                                     chart.update();  
                                     } catch (error) {
                                         console.error('Fetch Error: ', error);
