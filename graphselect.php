@@ -28,10 +28,10 @@
     $result = mysqli_query($conn, $sql);
 
 
-    /*while ($row = mysqli_fetch_assoc($result)){
+    while ($row = mysqli_fetch_assoc($result)){
         $data[] = $row;
-    }*/
-    $row = $result->fetch_assoc();
+    }
+    //$row = $result->fetch_assoc();
 
     echo json_encode($data);
 

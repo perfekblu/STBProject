@@ -3,7 +3,7 @@
 
     //echo "$q";
 
-    
+
     $server = "localhost";
     $username = "aba";
     $password = "abab";
@@ -21,7 +21,10 @@
     DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
-    $row = $result->fetch_assoc();
+    while ($row = mysqli_fetch_assoc($result)){
+        $data[] = $row;
+    }
+    //$row = $result->fetch_assoc();
 
     echo json_encode($row);
 
