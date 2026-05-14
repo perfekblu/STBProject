@@ -1,5 +1,5 @@
 <?php
-    $q = intval($_POST['q']);
+    $q = $_POST['q'];
 
     echo "$q";
 
