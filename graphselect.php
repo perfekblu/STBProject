@@ -1,7 +1,7 @@
 <?php
     $q = $_POST['q'];
 
-    echo "$q";
+    //echo "$q";
 
     
     $server = "localhost";
