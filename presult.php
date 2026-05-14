@@ -56,9 +56,9 @@
     $row = $result->fetch_assoc();
 
     $result = $conn->query("SELECT * FROM lcap ORDER BY id DESC LIMIT 1;");
-    $row = $result->fetch_assoc();
+    $row1 = $result->fetch_assoc();
 
-    //$row["lcap"] = $lcap;
+    $row["lcap"] = $row1['lcap'];
 
     echo json_encode($row);
 
