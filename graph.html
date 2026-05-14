@@ -95,7 +95,7 @@
                                 try {
                                     let dataq = new URLSearchParams();
                                     dataq.append(`q`, str);
-                                    console.log(dataq);
+                                    console.log(dataq.getAll(`q`));
 
                                     const options = {
                                         method: `POST`,
