@@ -93,16 +93,16 @@
 
                             async function graphinfo() {
                                 try {
-                                    /*let dataq = new URLSearchParams();
+                                    let dataq = new URLSearchParams();
                                     dataq.append(`q`, str);
                                     console.log(dataq);
 
                                     const options = {
                                         method: `POST`,
                                         body: dataq
-                                    };*/
+                                    };
                                     //Get user data from database
-                                    const response = await fetch('graphselect.php'/*,options*/);
+                                    const response = await fetch('graphselect.php',options);
                                     if (!response.ok) throw new Error('Network response was not ok');
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
@@ -117,8 +117,8 @@
                                         const labels = `${row.time}`;
                                         const value  = `${row.gas}`;
 
-                                        console.log(labels);
-                                        console.log(value);
+                                        //console.log(labels);
+                                        //console.log(value);
 
                                         chart.data.labels.push(labels);
                                         chart.data.datasets[0].data.push(value);
