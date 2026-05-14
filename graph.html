@@ -125,8 +125,9 @@
 
                                         chart.data.labels.push(labels);
                                         chart.data.datasets[0].data.push(value);
-                                        chart.update();
+                                        
                                     });
+                                    chart.update();
 
                                 } catch (error) {
                                     console.error('Fetch Error: ', error);
