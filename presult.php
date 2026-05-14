@@ -26,7 +26,7 @@
     $cap = $data['cap'];
     $lcap = $data['lcap'];
 
-    $json - json_encode($data,true);
+    $json = json_encode($data,true);
     file_put_contents('lcap.txt',$json);
 
 
