@@ -151,8 +151,8 @@
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-                                    const labels = data.time;
-                                    const value = data.value;
+                                    const labels = `${data.time}`;
+                                    const value = `${data.value}`;
                                     
                                     //Only display 16 points at a time
                                     if(chart.data.labels.length > 30) {
