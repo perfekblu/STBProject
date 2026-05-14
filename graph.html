@@ -53,7 +53,7 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <form>
-                        <select name="users" onchange="fetchData(this.value)">
+                        <select name="users" onchange="fetchData(this.value)" onchange="graphinfo(this.value)">
                             <option value="">Select Data:</option>
                             <option value="temperature">Temperature</option>
                             <option value="humidity">Humidity</option>
@@ -149,7 +149,7 @@
                                     //Get new data from database
                                     const response = await fetch('graph.php');
                                     if (!response.ok) throw new Error('Network response was not ok');
-                                    const data = await response.text(); // Parses JSON response from PHP
+                                    const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
                                     //Assign data to var
