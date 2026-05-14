@@ -67,36 +67,10 @@
                         <button onclick="fetchData()">Fetch</button>
                         <script>
                             
-                            let datat;
+                            
                             let laabels;
                             let vaalues;
-                            async function userinfo(str) {
-                                try {
-                                    let dataq = new URLSearchParams();
-                                    dataq.append(`q`, str);
-                                    console.log(dataq);
-
-                                    const options = {
-                                        method: `POST`,
-                                        body: dataq
-                                    };
-                                    //Get user data from database
-                                    const response = await fetch('graphselect.php',options);
-                                    if (!response.ok) throw new Error('Network response was not ok');
-                                    datat = await response.json(); // Parses JSON response from PHP
-                                    console.log(datat);
-
-                                    //document.getElementById("usertxt").innerHTML = `${data.fun}`;
-
-                                    datat.forEach(row => {
-                                        labels.push(row.time_recorded);
-                                        values.push(row.gas);
-                                    });
-
-                                } catch (error) {
-                                    console.error('Fetch Error: ', error);
-                                }
-                            }
+                            
 
                             
                             //Create Chart
@@ -123,7 +97,41 @@
                                 }
                             });
 
-                        
+                            async function userinfo() {
+                                try {
+                                    let dataq = new URLSearchParams();
+                                    dataq.append(`q`, str);
+                                    console.log(dataq);
+
+                                    const options = {
+                                        method: `POST`,
+                                        body: dataq
+                                    };
+                                    //Get user data from database
+                                    const response = await fetch('graphselect.php',options);
+                                    if (!response.ok) throw new Error('Network response was not ok');
+                                    const data = await response.json(); // Parses JSON response from PHP
+                                    console.log(data);
+                                    
+
+                                    const labels = data.time;
+                                    const value  = data.gas;
+
+                                    datat.forEach(row => {
+                                        //labels.push(row.time_recorded);
+                                        //values.push(row.gas);
+
+                                        chart.data.labels.push(labels);
+                                        chart.data.datasets[0].data.push(value);
+                                        chart.update();
+                                    });
+
+                                } catch (error) {
+                                    console.error('Fetch Error: ', error);
+                                }
+                            }
+
+
 
                             async function fetchData() {
                                 //Get new data from database
