@@ -64,7 +64,7 @@
                         </form>
 
                         <canvas id="chart"></canvas>
-                        <button onclick="fetchData()">Fetch</button>
+                        <button onclick="graphinfo()">Fetch</button>
                         <script>
                             
                             
@@ -97,7 +97,7 @@
                                 }
                             });
 
-                            async function userinfo() {
+                            async function graphinfo() {
                                 try {
                                     let dataq = new URLSearchParams();
                                     dataq.append(`q`, str);
