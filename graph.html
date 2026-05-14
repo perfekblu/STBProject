@@ -110,7 +110,7 @@
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-                                    chart.destroy();
+                                    chart.reset();
 
                                     data.forEach(row => {
                                         //labels.push(row.time_recorded);
