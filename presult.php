@@ -52,6 +52,8 @@
 
     $row = $result->fetch_assoc();
 
+    $row["lcap"] = $lcap;
+
     echo json_encode($row);
 
     //echo $row['temperature'] . "°C" . "<br>";
