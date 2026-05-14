@@ -55,11 +55,11 @@
                         <form>
                         <select name="users" onchange="graphinfo(this.value)" >
                             <option value="">Select Data:</option>
-                            <option value="temperature">Temperature</option>
-                            <option value="humidity">Humidity</option>
-                            <option value="gas">Gas</option>
-                            <option value="tvoc">TVOC</option>
-                            <option value="capacity">Capacity</option>
+                            <option value="temperature">Temperature (°C)</option>
+                            <option value="humidity">Humidity (RH%)</option>
+                            <option value="gas">Gas (PPM)</option>
+                            <option value="tvoc">TVOC (PPB)</option>
+                            <option value="capacity">Capacity (%)</option>
                         </select>
                         </form>
 
@@ -110,7 +110,7 @@
                                     const data = await response.json(); // Parses JSON response from PHP
                                     console.log(data);
                                     
-                                    chart.innerHTML = "";
+                                    chart.clear();
 
                                     data.forEach(row => {
                                         //labels.push(row.time_recorded);
