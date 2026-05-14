@@ -53,7 +53,7 @@
                     <div class="charts-card">
                         <h2 class="chart-title">SMALL CHARTS</h2>
                         <form>
-                        <select name="users" onchange="graphinfo(this.value)">
+                        <select name="users" onchange="graphinfo(this.value)" onchange="fetchData(this.value)" >
                             <option value="">Select Data:</option>
                             <option value="temperature">Temperature</option>
                             <option value="humidity">Humidity</option>
@@ -135,29 +135,43 @@
 
 
                             async function fetchData() {
-                                //Get new data from database
-                                const response = await fetch('graph.php');
-                                if (!response.ok) throw new Error('Network response was not ok');
-                                const data = await response.json(); // Parses JSON response from PHP
-                                console.log(data);
-                                
-                                //Assign data to var
-                                const labels = data.time;
-                                const value  = data.gas;
-                                console.log(labels);
-                                console.log(value);
+                                try{
+                                    let dataq = new URLSearchParams();
+                                    dataq.append(`q`, str);
+                                    console.log(dataq.getAll(`q`));
 
-                                //Only display 16 points at a time
-                                if(chart.data.labels.length > 30) {
-                                    chart.data.labels.shift();
-                                    chart.data.datasets[0].data.shift();
-                                }
+                                    const options = {
+                                        method: `POST`,
+                                        body: dataq
+                                    };
 
-                                //Update chart with new values
-                                chart.data.labels.push(labels);
-                                chart.data.datasets[0].data.push(value);
-                                chart.update();
-                            };
+
+                                    //Get new data from database
+                                    const response = await fetch('graph.php');
+                                    if (!response.ok) throw new Error('Network response was not ok');
+                                    const data = await response.json(); // Parses JSON response from PHP
+                                    console.log(data);
+                                    
+                                    //Assign data to var
+                                    const labels = data.time;
+                                    const value  = data.value;
+                                    console.log(labels);
+                                    console.log(value);
+
+                                    //Only display 16 points at a time
+                                    if(chart.data.labels.length > 30) {
+                                        chart.data.labels.shift();
+                                        chart.data.datasets[0].data.shift();
+                                    }
+
+                                    //Update chart with new values
+                                    chart.data.labels.push(labels);
+                                    chart.data.datasets[0].data.push(value);
+                                    chart.update();  
+                                    } catch (error) {
+                                        console.error('Fetch Error: ', error);
+                                    }
+                                };
                             setInterval(fetchData,5000); //Repeat function every 5s
 
                             
