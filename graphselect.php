@@ -35,9 +35,8 @@
 
     //Every 5min
     *$sql = "SELECT 
-    FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(created_at) / 300) * 300) AS five_min_group,
-    AVG(temperature) AS avg_temperature,
-    COUNT(*) AS readings
+    FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(created_at) / 300) * 300) AS time,
+    AVG($q) AS value
     FROM sensor_data
     GROUP BY FLOOR(UNIX_TIMESTAMP(created_at) / 300)
     ORDER BY id ASC limit 1000";
