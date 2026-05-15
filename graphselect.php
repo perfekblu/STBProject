@@ -34,9 +34,8 @@
     ORDER BY id ASC limit 1000";*/
 
     //Every 5min
-    *$sql = "SELECT 
-    FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(created_at) / 300) * 300) AS time,
-    AVG($q) AS value
+    $sql = "SELECT AVG($q) AS value,
+    FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(created_at) / 300) * 300) AS time
     FROM sensor_data
     GROUP BY FLOOR(UNIX_TIMESTAMP(created_at) / 300)
     ORDER BY id ASC limit 1000";
