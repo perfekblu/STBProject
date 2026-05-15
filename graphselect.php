@@ -24,7 +24,7 @@
     //$result = $stmt->get_result();
 
     $sql = "SELECT $q as value,
-    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1000";
+    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id ASC LIMIT 1000";
     $result = mysqli_query($conn, $sql);
 
 
