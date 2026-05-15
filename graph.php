@@ -18,7 +18,7 @@
     //$result = $conn->query("SELECT gas, 
     //DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1");
     $sql = "SELECT $q as value,
-    DATE_FORMAT(created_at, '%Y-%m-%d %H:%i') as time FROM sensor_data ORDER BY id DESC LIMIT 1";
+    DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:%s') as time FROM sensor_data ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
     $row = $result->fetch_assoc();
