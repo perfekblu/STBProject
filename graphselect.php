@@ -23,8 +23,14 @@
     //$stmt->execute();
     //$result = $stmt->get_result();
 
-    $sql = "SELECT $q as value,
-    DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id ASC LIMIT 1000";
+    //$sql = "SELECT $q as value,
+    //DATE_FORMAT(created_at, '%H:%i:%s') as time FROM sensor_data ORDER BY id ASC LIMIT 1000";
+    
+    $sql = "SELECT AVG($q) AS value,
+    DATE_FORMAT(created_at, '%Y-%m-%d %H:%i') AS time
+    FROM sensor_data
+    GROUP BY DATE_FORMAT(created_at, '%Y-%m-%d %H:%i')
+    ORDER BY id ASC limit 1000";
     $result = mysqli_query($conn, $sql);
 
 
